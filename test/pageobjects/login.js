@@ -9,7 +9,7 @@ class LoginPage extends Page {
      * define selectors using getter methods
      */
     get inputUsername () {
-        return $('#username');
+        return $('#user-name');
     }
 
     get inputPassword () {
@@ -17,7 +17,27 @@ class LoginPage extends Page {
     }
 
     get btnSubmit () {
-        return $('button[type="submit"]');
+        return $('#login-button');
+    }
+
+    get hamburgerMenu () {
+        return $('#react-burger-menu-btn');
+    }
+
+    get About () {
+        return $('#about_sidebar_link');
+    }
+
+    get AllItems () {
+        return $('#inventory_sidebar_link');
+    }
+
+    get logoutButton () {
+        return $('#logout_sidebar_link');
+    }
+
+    get ResetAppState () {
+        return $('#reset_sidebar_link');
     }
 
     /**
@@ -28,6 +48,10 @@ class LoginPage extends Page {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
+    }
+
+    async hamburger () {
+        await this.hamburgerMenu.click();
     }
 
     /**
