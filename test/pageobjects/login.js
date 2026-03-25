@@ -20,6 +20,10 @@ class LoginPage extends Page {
         return $('#login-button');
     }
 
+    get errorMessage () {
+        return $('button.error-button')
+    }
+
     get hamburgerMenu () {
         return $('#react-burger-menu-btn');
     }
@@ -40,23 +44,46 @@ class LoginPage extends Page {
         return $('#reset_sidebar_link');
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
+    get addItem () {
+        return $('.btn.btn_primary.btn_small.btn_inventory')
+    }
+
+    get shoppingCart () {
+        return $('.shopping_cart_link')
+    }
+
+    get removeItem () {
+        return $('.btn.btn_secondary.btn_small.cart_button')
+    }
+
+    get checkoutButton () {
+        return $('.btn.btn_action.btn_medium.checkout_button')
+    }
+
+    get returnButton () {
+        return $('.btn.btn_secondary.back.btn_medium.cart_cancel_link')
+    }
+
+    get continueShopping () {
+        return $('.btn.btn_secondary.back.btn_medium')
+    }
+    allUsernames = ['standard_user', 'problem_user', 'performance_glitch_user', 'error_user', 'visual_user', 'locked_out_user'];
+
     async login (username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
     }
 
+    async logout () {
+        await this.hamburgerMenu.click();
+        await this.logoutButton.click();
+    }
+
     async hamburger () {
         await this.hamburgerMenu.click();
     }
 
-    /**
-     * overwrite specific options to adapt it to page object
-     */
     open () {
         return super.open('login');
     }
