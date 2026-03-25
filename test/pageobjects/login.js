@@ -50,6 +50,10 @@ class LoginPage extends Page {
         return $('.shopping_cart_link')
     }
 
+    get cartQuantity () {
+        return $('.shopping_cart_badge')
+    }
+
     get removeItem () {
         return $('.btn.btn_secondary.btn_small.cart_button')
     }
@@ -84,6 +88,11 @@ class LoginPage extends Page {
 
     async hamburger () {
         await this.hamburgerMenu.click();
+    }
+
+    async resetAppStateCheck () {
+        await this.resetAppState.click()
+        await expect(this.cartQuantity).not.toBeDisplayed()
     }
 
     open () {

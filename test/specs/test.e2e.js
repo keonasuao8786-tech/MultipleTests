@@ -16,10 +16,13 @@ describe('Hamburger Menu Testing', () => {
                 await expect(LoginPage.hamburgerMenu).toBeDisplayed()
                  for (let x = 0; x < 6; x++) {
                     await LoginPage.addItem.click()
+                    await expect(LoginPage.cartQuantity).toBeDisplayed()
+                    await browser.pause(500)
                 }
                 await LoginPage.hamburgerMenu.click()
                 await LoginPage.allItemsButton.click()
-                await LoginPage.resetAppState.click()
+                await LoginPage.resetAppStateCheck()
+                await browser.pause(1000)
                 await LoginPage.logoutConditional()
                 await expect(LoginPage.inputUsername).toExist()
                 // await LoginPage.login(LoginPage.allUsernames[i], 'secret_sauce')
