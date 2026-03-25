@@ -36,7 +36,7 @@ class LoginPage extends Page {
         return $('#about_sidebar_link');
     }
 
-    get allItems () {
+    get allItemsButton () {
         return $('#inventory_sidebar_link');
     }
 
