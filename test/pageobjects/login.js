@@ -84,6 +84,10 @@ class LoginPage extends Page {
         await this.logoutButton.click();
     }
 
+    async logoutConditional () {
+        await this.logoutButton.click();
+    }
+
     async hamburger () {
         await this.hamburgerMenu.click();
     }

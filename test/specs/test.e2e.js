@@ -3,7 +3,7 @@ import LoginPage from '../pageobjects/login.js'
 import SecurePage from '../pageobjects/secure.page.js'
 import login from '../pageobjects/login.js'
 
-describe('Hambueger Menu Testing', () => {
+describe('Hamburger Menu Testing', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.open()
 
@@ -15,7 +15,11 @@ describe('Hambueger Menu Testing', () => {
             }
             else {
                 await expect(LoginPage.hamburgerMenu).toBeDisplayed()
-                await LoginPage.logout()
+                await LoginPage.addItem.click()
+                await LoginPage.hamburgerMenu.click()
+                await LoginPage.allItems.click()
+                await LoginPage.resetAppState.click()
+                await LoginPage.logoutConditional()
                 await expect(LoginPage.inputUsername).toExist()
             }
         }
