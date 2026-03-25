@@ -28,11 +28,15 @@ class LoginPage extends Page {
         return $('#react-burger-menu-btn');
     }
 
-    get About () {
+    get closeHamburgerMenu () {
+        return $('#react-burger-cross-btn')
+    }
+
+    get aboutButton () {
         return $('#about_sidebar_link');
     }
 
-    get AllItems () {
+    get allItems () {
         return $('#inventory_sidebar_link');
     }
 
@@ -40,7 +44,7 @@ class LoginPage extends Page {
         return $('#logout_sidebar_link');
     }
 
-    get ResetAppState () {
+    get resetAppState () {
         return $('#reset_sidebar_link');
     }
 
