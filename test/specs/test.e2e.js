@@ -21,6 +21,9 @@ describe('Hamburger Menu Testing', () => {
                 await LoginPage.resetAppState.click()
                 await LoginPage.logoutConditional()
                 await expect(LoginPage.inputUsername).toExist()
+                await LoginPage.login(LoginPage.allUsernames[i], 'secret_sauce')
+                await LoginPage.hamburgerMenu.click()
+                await LoginPage.aboutButton.click()
             }
         }
     })
