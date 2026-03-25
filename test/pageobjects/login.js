@@ -69,7 +69,7 @@ class LoginPage extends Page {
     get continueShopping () {
         return $('.btn.btn_secondary.back.btn_medium')
     }
-    allUsernames = ['standard_user', 'problem_user', 'performance_glitch_user', 'error_user', 'visual_user', 'locked_out_user'];
+    allUsernames = ['standard_user', 'performance_glitch_user', 'visual_user', 'problem_user', 'error_user', 'locked_out_user'];
 
     async login (username, password) {
         await this.inputUsername.setValue(username);

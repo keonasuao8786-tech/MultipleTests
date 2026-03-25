@@ -20,6 +20,10 @@ describe('Hamburger Menu Testing', () => {
                     await browser.pause(500)
                 }
                 await LoginPage.hamburgerMenu.click()
+                await expect(LoginPage.aboutButton).toExist()
+                await expect(LoginPage.allItemsButton).toExist()
+                await expect(LoginPage.logoutButton).toExist()
+                await expect(LoginPage.resetAppState).toExist()
                 await LoginPage.allItemsButton.click()
                 await LoginPage.resetAppStateCheck()
                 await browser.pause(1000)
