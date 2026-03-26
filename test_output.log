@@ -1,0 +1,116 @@
+
+> wdio
+> wdio run ./wdio.conf.js
+
+2026-03-26T18:29:11.919Z INFO @wdio/cli:launcher: Run onPrepare hook
+
+Execution of 1 workers started at 2026-03-26T18:29:11.924Z
+
+2026-03-26T18:29:11.924Z INFO @wdio/utils: Setting up browser driver for: chrome@stable
+2026-03-26T18:29:11.924Z INFO @wdio/utils: Setting up browser binaries for: chrome@stable
+2026-03-26T18:29:12.046Z INFO webdriver: Using Chromedriver v146.0.7680.165 from cache directory /var/folders/6g/87t01k7j2tb6c4ng2_z7sn7m0000gq/T
+2026-03-26T18:29:12.083Z INFO @wdio/cli:launcher: Run onWorkerStart hook
+2026-03-26T18:29:12.083Z INFO @wdio/xvfb: XvfbManager.init() called
+2026-03-26T18:29:12.083Z INFO @wdio/xvfb: Xvfb not needed on current platform
+2026-03-26T18:29:12.084Z INFO @wdio/local-runner: Start worker 0-0 with arg: run ./wdio.conf.js
+2026-03-26T18:29:12.095Z INFO @wdio/xvfb:ProcessFactory: xvfb-run not found, falling back to regular fork
+2026-03-26T18:29:12.095Z INFO @wdio/xvfb:ProcessFactory: ProcessFactory: shouldRun=false, isAvailable=false
+2026-03-26T18:29:12.095Z INFO @wdio/xvfb:ProcessFactory: Creating worker process with regular fork
+[0-0] 2026-03-26T18:29:12.829Z INFO @wdio/local-runner: Run worker command: run
+[0-0] RUNNING in chrome - file:///test/specs/test.e2e.js
+[0-0] 2026-03-26T18:29:12.948Z INFO webdriver: Initiate new session using the WebDriver protocol
+[0-0] 2026-03-26T18:29:13.109Z INFO webdriver: Using Chromedriver v146.0.7680.165 from cache directory /var/folders/6g/87t01k7j2tb6c4ng2_z7sn7m0000gq/T
+[0-0] 2026-03-26T18:29:13.127Z INFO chromedriver: Starting ChromeDriver 146.0.7680.165 (4b989da09e15a7dc0de0785cb5ff232aadae3f0f-refs/branch-heads/7680@{#2932}) on port 60512
+[0-0] 2026-03-26T18:29:13.127Z INFO chromedriver: Remote connections are allowed by an allowlist (0.0.0.0).
+[0-0] 2026-03-26T18:29:13.127Z INFO chromedriver: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[0-0] 2026-03-26T18:29:13.152Z INFO chromedriver: ChromeDriver was started successfully on port 60512.
+[0-0] 2026-03-26T18:29:13.219Z INFO @wdio/utils: Started Chromedriver v146.0.7680.165 with params --port=60512 --allowed-origins=* --allowed-ips=0.0.0.0 in 150ms on port 60512
+[0-0] 2026-03-26T18:29:13.222Z INFO webdriver: [POST] http://localhost:60512/session
+[0-0] 2026-03-26T18:29:14.171Z INFO webdriver: Register BiDi handler for session with id fefc7d6f6fbabd57c00da8fcfd5196d5
+[0-0] 2026-03-26T18:29:14.172Z INFO webdriver: Connecting to webSocketUrl ws://127.0.0.1:60512/session/fefc7d6f6fbabd57c00da8fcfd5196d5
+[0-0] 2026-03-26T18:29:14.179Z INFO webdriver: Connected to Bidi protocol at ws://127.0.0.1:60512/session/fefc7d6f6fbabd57c00da8fcfd5196d5
+[0-0] 2026-03-26T18:29:14.179Z INFO webdriver: Connected to WebDriver Bidi interface at ws://127.0.0.1:60512/session/fefc7d6f6fbabd57c00da8fcfd5196d5
+[0-0] 2026-03-26T18:29:14.181Z INFO webdriver: COMMAND getWindowHandle()
+[0-0] 2026-03-26T18:29:14.182Z INFO webdriver: BIDI COMMAND browsingContext.getTree {}
+[0-0] 2026-03-26T18:29:14.182Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["browsingContext.contextCreated"]}
+[0-0] 2026-03-26T18:29:14.182Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["log.entryAdded","browsingContext.navigationStarted"]}
+[0-0] 2026-03-26T18:29:14.183Z INFO webdriver: BIDI COMMAND script.addPreloadScript { functionDeclaration: <PreloadScript[1319 bytes]>, contexts: undefined }
+[0-0] 2026-03-26T18:29:14.183Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["browsingContext.navigationStarted","browsingContext.fragmentNavigated","network.responseCompleted","network.beforeRequestSent","network.fetchError"]}
+[0-0] 2026-03-26T18:29:14.183Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["browsingContext.userPromptOpened"]}
+[0-0] 2026-03-26T18:29:14.183Z INFO webdriver: BIDI COMMAND session.subscribe {"events":["browsingContext.navigationStarted"]}
+[0-0] 2026-03-26T18:29:14.183Z INFO webdriver: [GET] http://localhost:60512/session/fefc7d6f6fbabd57c00da8fcfd5196d5/window
+[0-0] 2026-03-26T18:29:14.189Z INFO webdriver: RESULT 9EA97B4BFBFB8405BC987ECCF2601BA2
+[0-0] 2026-03-26T18:29:14.191Z INFO webdriver: BIDI RESULT {"id":1,"result":{"contexts":[{"children":[],"clientWindow":"931228470","context":"9EA97B4BFBFB8405BC987ECCF2601BA2","originalOpener":null,"parent":null,"url":"about:blank","userContext":"default"}]},"type":"success"}
+[0-0] 2026-03-26T18:29:14.192Z INFO webdriverio:PolyfillManager: Adding polyfill script to context with id 9EA97B4BFBFB8405BC987ECCF2601BA2
+[0-0] 2026-03-26T18:29:14.192Z INFO webdriver: BIDI COMMAND script.callFunction {"functionDeclaration":"<Function[443 bytes] webdriverioPolyfill>","target":{"children":[],"clientWindow":"931228470","context":"9EA97B4BFBFB8405BC987ECCF2601BA2","originalOpener":null,"parent":null,"url":"about:blank","userContext":"default"},"awaitPromise":false}
+[0-0] 2026-03-26T18:29:14.192Z INFO webdriver: BIDI COMMAND script.addPreloadScript { functionDeclaration: <PreloadScript[443 bytes]>, contexts: ["9EA97B4BFBFB8405BC987ECCF2601BA2"] }
+[0-0] 2026-03-26T18:29:14.193Z INFO webdriver: BIDI RESULT {"id":2,"result":{"subscription":"f6520712-62bd-47e9-a3d2-5d165fb5ac33"},"type":"success"}
+[0-0] 2026-03-26T18:29:14.194Z INFO webdriver: BIDI RESULT {"id":3,"result":{"subscription":"d07bb357-aaa9-44d0-81b3-15e44122f2a1"},"type":"success"}
+[0-0] 2026-03-26T18:29:14.198Z INFO webdriver: BIDI RESULT {"id":4,"result":{"script":"35311c97-f6c5-418e-8fad-38bc9f73a0fd"},"type":"success"}
+[0-0] 2026-03-26T18:29:14.198Z INFO webdriver: BIDI RESULT {"id":5,"result":{"subscription":"e3e7e9f7-522b-461b-9e2b-3fd51723b1e1"},"type":"success"}
+[0-0] 2026-03-26T18:29:14.198Z INFO webdriver: BIDI RESULT {"id":6,"result":{"subscription":"937caec2-6973-4b1a-8239-6710254e32d8"},"type":"success"}
+[0-0] 2026-03-26T18:29:14.198Z INFO webdriver: BIDI RESULT {"id":7,"result":{"subscription":"1d41e6f9-ecb2-4d7f-9844-48a9075c03ad"},"type":"success"}
+[0-0] 2026-03-26T18:29:14.198Z INFO webdriver: BIDI RESULT {"id":8,"result":{"realm":"-5425629036157162814.-1680697886296278346","result":{"type":"undefined"},"type":"success"},"type":"success"}
+[0-0] 2026-03-26T18:29:14.199Z INFO webdriver: BIDI RESULT {"id":9,"result":{"script":"bc6c4726-85a8-4b8a-acba-875924b54808"},"type":"success"}
+[0-0] 2026-03-26T18:29:14.204Z INFO webdriver: BIDI COMMAND browsingContext.navigate {"context":"9EA97B4BFBFB8405BC987ECCF2601BA2","url":"https://www.saucedemo.com/","wait":"complete"}
+[0-0] 2026-03-26T18:29:14.548Z INFO webdriver: BIDI RESULT {"id":10,"result":{"navigation":"59d0f027-cb26-411d-85be-024d1c32ec09","url":"https://www.saucedemo.com/"},"type":"success"}
+[0-0] 2026-03-26T18:29:14.550Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"css","value":"#user-name"},"context":"9EA97B4BFBFB8405BC987ECCF2601BA2"}
+[0-0] 2026-03-26T18:29:14.575Z INFO webdriver: BIDI RESULT {"id":11,"result":{"nodes":[{"sharedId":"f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.3","type":"node","value":{"attributes":{"autocapitalize":"none","autocorrect":"off","class":"input_error form_input","data-test":"username","id":"user-name","name":"user-name","placeholder":"Username","type":"text","value":""},"childNodeCount":0,"localName":"input","namespaceURI":"http://www.w3.org/1999/xhtml","nodeType":1,"shadowRoot":{"sharedId":"f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.10","type":"node","value":{"childNodeCount":2,"mode":"closed","nodeType":11}}}}]},"type":"success"}
+[0-0] 2026-03-26T18:29:14.580Z INFO webdriver: COMMAND elementClear("f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.3")
+[0-0] 2026-03-26T18:29:14.580Z INFO webdriver: [POST] http://localhost:60512/session/fefc7d6f6fbabd57c00da8fcfd5196d5/element/f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.3/clear
+[0-0] 2026-03-26T18:29:14.580Z INFO webdriver: DATA {}
+[0-0] 2026-03-26T18:29:14.608Z INFO webdriver: RESULT null
+[0-0] 2026-03-26T18:29:14.608Z INFO webdriver: COMMAND elementSendKeys("f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.3", "standard_user")
+[0-0] 2026-03-26T18:29:14.609Z INFO webdriver: [POST] http://localhost:60512/session/fefc7d6f6fbabd57c00da8fcfd5196d5/element/f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.3/value
+[0-0] 2026-03-26T18:29:14.609Z INFO webdriver: DATA {"text":"standard_user"}
+[0-0] 2026-03-26T18:29:14.711Z INFO webdriver: RESULT null
+[0-0] 2026-03-26T18:29:14.712Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"css","value":"#password"},"context":"9EA97B4BFBFB8405BC987ECCF2601BA2"}
+[0-0] 2026-03-26T18:29:14.804Z INFO webdriver: BIDI RESULT {"id":12,"result":{"nodes":[{"sharedId":"f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.4","type":"node","value":{"attributes":{"autocapitalize":"none","autocorrect":"off","class":"input_error form_input","data-test":"password","id":"password","name":"password","placeholder":"Password","type":"password","value":""},"childNodeCount":0,"localName":"input","namespaceURI":"http://www.w3.org/1999/xhtml","nodeType":1,"shadowRoot":{"sharedId":"f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.12","type":"node","value":{"childNodeCount":2,"mode":"closed","nodeType":11}}}}]},"type":"success"}
+[0-0] 2026-03-26T18:29:14.806Z INFO webdriver: COMMAND elementClear("f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.4")
+[0-0] 2026-03-26T18:29:14.806Z INFO webdriver: [POST] http://localhost:60512/session/fefc7d6f6fbabd57c00da8fcfd5196d5/element/f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.4/clear
+[0-0] 2026-03-26T18:29:14.806Z INFO webdriver: DATA {}
+[0-0] 2026-03-26T18:29:14.819Z INFO webdriver: RESULT null
+[0-0] 2026-03-26T18:29:14.820Z INFO webdriver: COMMAND elementSendKeys("f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.4", "secret_sauce")
+[0-0] 2026-03-26T18:29:14.820Z INFO webdriver: [POST] http://localhost:60512/session/fefc7d6f6fbabd57c00da8fcfd5196d5/element/f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.4/value
+[0-0] 2026-03-26T18:29:14.820Z INFO webdriver: DATA {"text":"secret_sauce"}
+[0-0] 2026-03-26T18:29:14.872Z INFO webdriver: RESULT null
+[0-0] 2026-03-26T18:29:14.872Z INFO webdriver: BIDI COMMAND browsingContext.locateNodes {"locator":{"type":"css","value":"#login-button"},"context":"9EA97B4BFBFB8405BC987ECCF2601BA2"}
+[0-0] 2026-03-26T18:29:14.996Z INFO webdriver: BIDI RESULT {"id":13,"result":{"nodes":[{"sharedId":"f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.5","type":"node","value":{"attributes":{"class":"submit-button btn_action","data-test":"login-button","id":"login-button","name":"login-button","type":"submit","value":"Login"},"childNodeCount":0,"localName":"input","namespaceURI":"http://www.w3.org/1999/xhtml","nodeType":1,"shadowRoot":{"sharedId":"f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.13","type":"node","value":{"childNodeCount":1,"mode":"closed","nodeType":11}}}}]},"type":"success"}
+[0-0] 2026-03-26T18:29:15.004Z INFO webdriver: COMMAND elementClick("f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.5")
+[0-0] 2026-03-26T18:29:15.006Z INFO webdriver: [POST] http://localhost:60512/session/fefc7d6f6fbabd57c00da8fcfd5196d5/element/f.9EA97B4BFBFB8405BC987ECCF2601BA2.d.59579A1532AE36E9DA0300D945D78891.e.5/click
+[0-0] 2026-03-26T18:29:15.007Z INFO webdriver: DATA {}
+[0-0] 2026-03-26T18:29:15.124Z INFO webdriver: RESULT null
+[0-0] TypeError in "Hamburger Menu Testing -.should use the All Items button correctly"
+TypeError: Cannot read properties of undefined (reading 'click')
+    at Context.<anonymous> (file:///Users/qastudentafternoon/Desktop/Automation/MultipleTests/test/specs/test.e2e.js:18:49)
+[0-0] 2026-03-26T18:29:15.170Z INFO webdriver: COMMAND deleteSession()
+[0-0] 2026-03-26T18:29:15.171Z INFO webdriver: [DELETE] http://localhost:60512/session/fefc7d6f6fbabd57c00da8fcfd5196d5
+[0-0] 2026-03-26T18:29:15.229Z INFO webdriver: RESULT null
+[0-0] 2026-03-26T18:29:15.229Z INFO webdriver: Close Bidi connection to ws://127.0.0.1:60512/session/fefc7d6f6fbabd57c00da8fcfd5196d5
+[0-0] 2026-03-26T18:29:15.230Z INFO webdriver: Kill driver process with PID 5612
+[0-0] FAILED in chrome - file:///test/specs/test.e2e.js
+2026-03-26T18:29:15.350Z INFO @wdio/cli:launcher: Run onWorkerEnd hook
+
+ "spec" Reporter:
+------------------------------------------------------------------
+[chrome 146.0.7680.165 mac #0-0] Running: chrome (v146.0.7680.165) on mac
+[chrome 146.0.7680.165 mac #0-0] Session ID: fefc7d6f6fbabd57c00da8fcfd5196d5
+[chrome 146.0.7680.165 mac #0-0]
+[chrome 146.0.7680.165 mac #0-0] » test/specs/test.e2e.js
+[chrome 146.0.7680.165 mac #0-0] Hamburger Menu Testing -
+[chrome 146.0.7680.165 mac #0-0]    ✖ should use the All Items button correctly
+[chrome 146.0.7680.165 mac #0-0]
+[chrome 146.0.7680.165 mac #0-0] 1 failing (1s)
+[chrome 146.0.7680.165 mac #0-0]
+[chrome 146.0.7680.165 mac #0-0] 1) Hamburger Menu Testing - should use the All Items button correctly
+[chrome 146.0.7680.165 mac #0-0] Cannot read properties of undefined (reading 'click')
+[chrome 146.0.7680.165 mac #0-0] TypeError: Cannot read properties of undefined (reading 'click')
+[chrome 146.0.7680.165 mac #0-0]     at Context.<anonymous> (file:///Users/qastudentafternoon/Desktop/Automation/MultipleTests/test/specs/test.e2e.js:18:49)
+
+
+Spec Files:	 0 passed, 1 failed, 1 total (100% completed) in 00:00:03  
+
+2026-03-26T18:29:15.351Z INFO @wdio/local-runner: Shutting down spawned worker
+2026-03-26T18:29:15.602Z INFO @wdio/local-runner: Waiting for 0 to shut down gracefully
+2026-03-26T18:29:15.602Z INFO @wdio/local-runner: shutting down
+2026-03-26T18:29:15.603Z INFO @wdio/cli:launcher: Run onComplete hook
