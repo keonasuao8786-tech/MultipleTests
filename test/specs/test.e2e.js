@@ -1,4 +1,4 @@
-import { browser, expect } from '@wdio/globals'
+import { browser, expect, $ } from '@wdio/globals'
 import LoginPage from '../pageobjects/login.js'
 import SecurePage from '../pageobjects/secure.page.js'
 import login from '../pageobjects/login.js'
@@ -7,39 +7,39 @@ describe('Hamburger Menu Testing -', () => {
     it('should use the All Items button correctly', async () => {
         await LoginPage.open()
 
-         for (let i = 0; i < LoginPage.allUsernames.length; i++) {
-            await LoginPage.login(LoginPage.allUsernames[i], 'secret_sauce')
+         for (let i = 0; i < SecurePage.allUsernames.length; i++) {
+            await LoginPage.login(SecurePage.allUsernames[i], 'secret_sauce')
             
 
-            if (LoginPage.allUsernames[i] === 'locked_out_user') {
+            if (SecurePage.allUsernames[i] === 'locked_out_user') {
                 await expect(LoginPage.errorMessage).toExist()
             }
             else {
                 for (let item = 0; item < LoginPage.items.length; item++) {
-                    await expect(LoginPage.hamburgerMenu).toBeDisplayed()
+                    await expect(SecurePage.hamburgerMenu).toBeDisplayed()
                     //await browser.pause(200)
-                    await LoginPage.items[item].click()
+                    await SecurePage.items[item].click()
                     await expect($('#back-to-products')).toExist()
                     //await browser.pause(200)
-                    await LoginPage.hamburgerMenu.click()
-                    await LoginPage.allItemsButton.click()
+                    await SecurePage.hamburgerMenu.click()
+                    await SecurePage.allItemsButton.click()
                     await expect($('.app_logo')).toBeDisplayed()
                     //await browser.pause(200)
 
                 }
-                await LoginPage.logout()
-                // await LoginPage.itemZero.click()
+                await SecurePage.logout()
+                // await SecurePage.itemZero.click()
                 // await browser.pause(1000)
                 // await expect($('#back-to-products')).toExist()
-                // await LoginPage.hamburgerMenu.click()
+                // await SecurePage.hamburgerMenu.click()
                 // await browser.pause(200)
-                // await expect(LoginPage.allItemsButton).toExist()
-                // await LoginPage.allItemsButton.click()
+                // await expect(SecurePage.allItemsButton).toExist()
+                // await SecurePage.allItemsButton.click()
                 // await browser.pause(1000)
                 // await expect($('.app_logo')).toBeDisplayed()
-                // await LoginPage.itemOne.click()
+                // await SecurePage.itemOne.click()
                 // await browser.pause(500)
-                // await LoginPage.logout()
+                // await SecurePage.logout()
                 // await expect(LoginPage.inputUsername).toExist()
             }
         }
