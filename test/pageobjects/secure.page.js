@@ -34,6 +34,31 @@ class SecurePage extends Page {
         return $('.btn.btn_primary.btn_small.btn_inventory')
     }
 
+    get itemZero () {
+        return $('#item_0_img_link')
+    }
+
+    get itemOne () {
+        return $('#item_1_img_link')
+    }
+
+    get itemTwo () {
+        return $('#item_2_img_link')
+    }
+    
+    get itemThree () {
+        return $('#item_3_img_link')
+    }
+
+    get itemFour () {
+        return $('#item_4_img_link')
+    }
+
+    get itemFive () {
+        return $('#item_5_img_link')
+    }
+
+
     get shoppingCart () {
         return $('.shopping_cart_link')
     }
@@ -59,10 +84,10 @@ class SecurePage extends Page {
     }
 
     get items() {
-        return ['#item_0_img_link', '#item_1_img_link', '#item_2_img_link', '#item_3_img_link', '#item_4_img_link', '#item_5_img_link'];
+        return [this.itemZero, this.itemOne, this.itemTwo, this.itemThree, this.itemFour, this.itemFive];
     }
-    
-    allUsernames = ['standard_user', 'performance_glitch_user', 'visual_user', 'problem_user', 'error_user', 'locked_out_user'];
+
+    allUsernames = ['standard_user', 'visual_user', 'problem_user', 'performance_glitch_user', 'error_user', 'locked_out_user'];
 
     async logout () {
         await this.hamburgerMenu.click();

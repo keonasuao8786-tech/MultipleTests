@@ -1,7 +1,6 @@
 import { browser, expect, $ } from '@wdio/globals'
 import LoginPage from '../pageobjects/login.js'
 import SecurePage from '../pageobjects/secure.page.js'
-import login from '../pageobjects/login.js'
 
 describe('Hamburger Menu Testing -', () => {
     it('should use the All Items button correctly', async () => {
@@ -15,7 +14,7 @@ describe('Hamburger Menu Testing -', () => {
                 await expect(LoginPage.errorMessage).toExist()
             }
             else {
-                for (let item = 0; item < LoginPage.items.length; item++) {
+                for (let item = 0; item < SecurePage.items.length; item++) {
                     await expect(SecurePage.hamburgerMenu).toBeDisplayed()
                     //await browser.pause(200)
                     await SecurePage.items[item].click()
