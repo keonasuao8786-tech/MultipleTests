@@ -2,9 +2,10 @@ import { browser, expect, $ } from '@wdio/globals'
 import LoginPage from '../pageobjects/login.js'
 import SecurePage from '../pageobjects/secure.page.js'
 
-describe('Hamburger Menu Testing -', () => {
+describe('Hamburger Menu Testing', () => {
     it('should use the All Items button correctly', async () => {
         await LoginPage.open();
+        await expect(LoginPage.inputUsername).toExist();
 
             await LoginPage.login('standard_user', 'secret_sauce');
                 for (let item = 0; item < SecurePage.items.length; item++) {
@@ -18,17 +19,48 @@ describe('Hamburger Menu Testing -', () => {
                 }
                 await SecurePage.logout();
     })
-    it('should use the About button properly', async () => {
+    it('should logout of the site properly', async () => {
         await LoginPage.open();
+        await expect(LoginPage.inputUsername).toExist();
+
         await LoginPage.login('standard_user', 'secret_sauce');
+        await expect(SecurePage.hamburgerMenu).toExist();
+        await SecurePage.logout();
+        await expect(LoginPage.inputUsername).toExist();
+    })
+    it('should use the Reset App State button properly', async () => {
+        await LoginPage.open();
+        await expect(LoginPage.inputUsername).toExist();
+
+        await LoginPage.login('standard_user', 'secret_sauce');
+        await expect(SecurePage.hamburgerMenu).toExist();
+        for (let x = 0; x < SecurePage.items.length; x++) {
+            await expect(SecurePage.hamburgerMenu).toBeDisplayed();
+            await SecurePage.addItem.click();
+            await expect(SecurePage.removeItem).toBeDisplayed();
+        }
         await SecurePage.hamburgerMenu.click();
-        await expect(SecurePage.aboutButton).toBeDisplayed();
-        await SecurePage.aboutButton.click();
-        await browser.pause(500);
-       // await expect($('.MuiStack-root.nav-left.css-122ck6t')).toBeDisplayed()
-        await browser.back();
-        await expect($('.app_logo')).toBeDisplayed();
-        await browser.pause(1000);
-        await SecurePage.logout();      
-    });
+        await expect(SecurePage.resetAppState).toBeDisplayed();
+        await SecurePage.resetAppState.click();
+        await expect(SecurePage.cartIndicator).not.toBeDisplayed()
+        await browser.refresh();
+        await expect(SecurePage.removeItem).not.toBeDisplayed();
+    })
+    // it('should use the About button properly', async () => {
+    //     await LoginPage.open();
+    //     await LoginPage.login('standard_user', 'secret_sauce');
+    //     await SecurePage.hamburgerMenu.click();
+    //     await expect(SecurePage.aboutButton).toBeDisplayed();
+    //     await SecurePage.aboutButton.click();
+    //     await browser.pause(500);
+    //     await browser.back();
+    //     await expect($('.app_logo')).toBeDisplayed();
+    //     await browser.pause(1000);
+    //     await location.reload(true);
+    //     await SecurePage.logout();      
+    // }); COME BACK TO THIS LATER!!!!!!
 });
+
+// describe('Your Cart Testing', () =>{
+
+// })

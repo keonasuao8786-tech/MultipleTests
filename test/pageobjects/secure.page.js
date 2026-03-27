@@ -68,7 +68,11 @@ class SecurePage extends Page {
     }
 
     get removeItem () {
-        return $('.btn.btn_secondary.btn_small.cart_button')
+        return $('.btn.btn_secondary.btn_small.btn_inventory')
+    }
+
+    get cartIndicator () {
+        return $('.shopping_cart_badge')
     }
 
     get checkoutButton () {
