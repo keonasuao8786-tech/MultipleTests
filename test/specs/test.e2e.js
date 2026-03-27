@@ -61,6 +61,15 @@ describe('Hamburger Menu Testing', () => {
     // }); COME BACK TO THIS LATER!!!!!!
 });
 
-// describe('Your Cart Testing', () =>{
+describe('Your Cart Testing', () =>{
+    it('should open the Your Cart page successfully', async () => {
+        await LoginPage.open();
 
-// })
+        await LoginPage.login('standard_user', 'secret_sauce');
+        await expect(SecurePage.shoppingCart).toBeDisplayed();
+        await SecurePage.shoppingCart.click();
+        await browser.pause(1000);
+        await expect(SecurePage.continueShopping).toBeDisplayed();
+        await SecurePage.continueShopping.click();
+    })
+})
