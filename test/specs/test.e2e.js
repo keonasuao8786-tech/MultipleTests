@@ -52,16 +52,7 @@ describe('Hamburger Menu Testing', () => {
         await SecurePage.hamburgerMenu.click();
         await expect(SecurePage.aboutButton).toBeDisplayed();
         await SecurePage.aboutButton.click();
-        await browser.pause(500);
-        await browser.refresh();
-        await expect($('.MuiStack-root.css-10ffvtp')).toExist()
-        // await browser.back();
-        // await browser.refresh();
-        // await expect(LoginPage.inputUsername).toExist();
-        // await LoginPage.login('standard_user', 'secret-sauce');
-        // await expect($('.app_logo')).toBeDisplayed();
-        // await browser.pause(1000);
-        // await SecurePage.logout();      
+        await expect(browser).toHaveUrl('https://saucelabs.com/');
     });
 });
 
@@ -75,5 +66,8 @@ describe('Your Cart Testing', () =>{
         await browser.pause(1000);
         await expect(SecurePage.continueShopping).toBeDisplayed();
         await SecurePage.continueShopping.click();
+    })
+    it('should use the Remove button in the Your Cart page properly', async () => {
+        await LoginPage.open();
     })
 })

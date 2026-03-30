@@ -91,6 +91,10 @@ class SecurePage extends Page {
         return [this.itemZero, this.itemOne, this.itemTwo, this.itemThree, this.itemFour, this.itemFive];
     }
 
+    get inventory() {
+        return $('.inventory_list')
+    }
+
     allUsernames = ['standard_user', 'visual_user', 'problem_user', 'error_user', 'performance_glitch_user', 'locked_out_user'];
 
     async logout () {
