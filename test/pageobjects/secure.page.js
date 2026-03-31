@@ -6,6 +6,10 @@ class SecurePage extends Page {
         return $('#root');
     }
 
+    get title () {
+        return $('.title')
+    }
+
     get hamburgerMenu () {
         return $('#react-burger-menu-btn');
     }
@@ -63,12 +67,12 @@ class SecurePage extends Page {
         return $('.shopping_cart_link')
     }
 
-    get cartQuantity () {
-        return $('.shopping_cart_badge')
-    }
-
     get removeItem () {
         return $('.btn.btn_secondary.btn_small.btn_inventory')
+    }
+
+    get removeCart () {
+        return $('.btn.btn_secondary.btn_small.cart_button')
     }
 
     get cartIndicator () {
