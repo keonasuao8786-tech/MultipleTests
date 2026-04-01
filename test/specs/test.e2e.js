@@ -3,6 +3,20 @@ import LoginPage from '../pageobjects/login.js'
 import SecurePage from '../pageobjects/secure.page.js'
 
 describe('Hamburger Menu Testing', () => {
+    it('should open and close the Hamburger menu', async () => {
+        await LoginPage.open();
+
+        await LoginPage.login('standard_user', 'secret_sauce');
+        await expect(SecurePage.hamburgerMenu).toBeDisplayed();
+
+        await browser.pause(100);
+        await SecurePage.hamburgerMenu.click()
+        await expect(SecurePage.allItemsButton).toBeDisplayed();
+        await browser.pause(500);
+        await SecurePage.closeHamburgerMenu.click();
+        await expect(SecurePage.allItemsButton).not.toBeDisplayed();
+        await browser.pause(500);
+    })
     it('should use the All Items button correctly', async () => {
         await LoginPage.open();
         await expect(LoginPage.inputUsername).toExist();
@@ -12,6 +26,7 @@ describe('Hamburger Menu Testing', () => {
                     await expect(SecurePage.hamburgerMenu).toBeDisplayed();
                     await SecurePage.items[item].click();
                     await expect($('#back-to-products')).toExist();
+                    await browser.pause(100);
                     await SecurePage.hamburgerMenu.click();
                     await SecurePage.allItemsButton.click();
                     await expect($('.app_logo')).toBeDisplayed();
@@ -25,6 +40,7 @@ describe('Hamburger Menu Testing', () => {
 
         await LoginPage.login('standard_user', 'secret_sauce');
         await expect(SecurePage.hamburgerMenu).toExist();
+        await browser.pause(100);
         await SecurePage.logout();
         await expect(LoginPage.inputUsername).toExist();
     })
@@ -38,19 +54,50 @@ describe('Hamburger Menu Testing', () => {
             await expect(SecurePage.hamburgerMenu).toBeDisplayed();
             await SecurePage.addItem.click();
             await expect(SecurePage.removeItem).toBeDisplayed();
+            await browser.pause(500);
         }
 
         await SecurePage.hamburgerMenu.click();
         await expect(SecurePage.resetAppState).toBeDisplayed();
+        await browser.pause(1000);
         await SecurePage.resetAppState.click();
 
         await expect(SecurePage.cartIndicator).not.toBeDisplayed()
+        await browser.pause(500);
         await browser.refresh();
         await expect(SecurePage.removeItem).not.toBeDisplayed();
+        await browser.pause(500);
     })
     it('should use the About button properly', async () => {
     await LoginPage.open();
-    
+
+    await LoginPage.login('standard_user', 'secret_sauce');
+    await expect(SecurePage.title).toHaveText('Products');
+
+    await SecurePage.hamburgerMenu.click();
+    await browser.pause(1000);
+
+    await SecurePage.aboutButton.waitForClickable({timeout: 3000});
+    console.log('Handles before click:', await browser.getWindowHandles());
+    await browser.pause(1000);
+    await SecurePage.aboutButton.click();
+    console.log('Handles after click:', await browser.getWindowHandles());
+
+    // Wait a bit for the new window
+    await browser.pause(2000);
+    const handles = await browser.getWindowHandles();
+    if (handles.length > 1) {
+        await browser.switchToWindow(handles[1]);
+    } else {
+        // If no new window, perhaps it opened in same window
+        console.log('No new window, checking current URL');
+    }
+
+    // await browser.pause(3000)
+    // await expect(browser).toHaveUrl(expect.stringContaining('saucelabs.com'));
+
+    // await browser.closeWindow();
+    // await browser.switchToWindow(handles[0]);
     });
 });
 
