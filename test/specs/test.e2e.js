@@ -7,7 +7,6 @@ describe('Hamburger Menu Testing', () => {
         await LoginPage.open();
     })
     afterEach(async () => {
-    await browser.url('https://www.saucedemo.com/');
     await browser.reloadSession();
     });
     it('should open and close the Hamburger menu', async () => {
@@ -72,25 +71,19 @@ describe('Hamburger Menu Testing', () => {
     await LoginPage.login('standard_user', 'secret_sauce');
     await expect(SecurePage.title).toHaveText('Products');
 
-    await SecurePage.hamburgerMenu.waitForClickable();
     await SecurePage.hamburgerMenu.click();
-
-    await SecurePage.aboutButton.waitForClickable();
-    console.log('Handles before click:', await browser.getWindowHandles());
-    const target = await SecurePage.aboutButton.getAttribute('target');
-    console.log('The attribute is ' + target);
+    await SecurePage.aboutButton.waitForDisplayed();
     await SecurePage.aboutButton.click();
-    console.log('Handles after click:', await browser.getWindowHandles());
 
-    // Wait for navigation
     await browser.waitUntil(
-    async () => (await browser.getUrl()).includes('saucelabs.com'),
-    { timeout: 5000, timeoutMsg: 'Expected to be on Sauce Labs site' }
+        async () => {
+            const url = await browser.getUrl();
+            return url.includes('saucelabs.com');
+        },
+        { timeout: 10000}
     );
 
     await expect(browser).toHaveUrl(expect.stringContaining('saucelabs.com'));
-
-    await browser.url('https://www.saucedemo.com/');
     });
 });
 
@@ -130,7 +123,7 @@ describe('Your Cart Testing', () =>{
         await LoginPage.login('standard_user', 'secret_sauce');
         await expect(SecurePage.title).toHaveText('Products');
 
-        await browser.waitUntil(async () => !(await SecurePage.shoppingCart.isClickable()));
+        await SecurePage.shoppingCart.waitForClickable();
         await SecurePage.shoppingCart.click();
         await expect(SecurePage.continueShopping).toExist();
 
