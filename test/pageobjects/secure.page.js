@@ -10,6 +10,10 @@ class SecurePage extends Page {
         return $('.title')
     }
 
+    get appLogo () {
+        return $('.app_logo')
+    }
+
     get hamburgerMenu () {
         return $('#react-burger-menu-btn');
     }
@@ -62,6 +66,9 @@ class SecurePage extends Page {
         return $('#item_5_img_link')
     }
 
+    get backToProducts () {
+        return $('#back-to-products')
+    }
 
     get shoppingCart () {
         return $('.shopping_cart_link')
