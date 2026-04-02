@@ -14,10 +14,10 @@ describe('Hamburger Menu Testing', () => {
         await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
         await expect(SecurePage.hamburgerMenu).toBeDisplayed();
 
-        await SecurePage.hamburgerMenu.click()
+        await SecurePage.hamburgerClick();
         await expect(SecurePage.allItemsButton).toBeDisplayed();
         await SecurePage.closeHamburgerMenu.waitForClickable();
-        await SecurePage.closeHamburgerMenu.click();
+        await SecurePage.hamburgerClose();
         await expect(SecurePage.allItemsButton).not.toBeDisplayed();
         await SecurePage.title.waitForDisplayed();
     })
@@ -30,7 +30,7 @@ describe('Hamburger Menu Testing', () => {
                     await SecurePage.items[item].click();
                     await expect(SecurePage.backToProducts).toExist();
                     await SecurePage.hamburgerMenu.waitForClickable();
-                    await SecurePage.hamburgerMenu.click();
+                    await SecurePage.hamburgerClick();;
                     await SecurePage.allItemsButton.click();
                     await expect(SecurePage.appLogo).toBeDisplayed();
 
@@ -58,10 +58,10 @@ describe('Hamburger Menu Testing', () => {
             await expect(SecurePage.removeItem).toBeDisplayed();
         }
 
-        await SecurePage.hamburgerMenu.click();
+        await SecurePage.hamburgerClick();;
         await expect(SecurePage.resetAppState).toBeDisplayed();
         await SecurePage.resetAppState.waitForClickable();
-        await SecurePage.resetAppState.click();
+        await SecurePage.resetApp();
 
         await expect(SecurePage.cartIndicator).not.toBeDisplayed()
         await browser.refresh();
@@ -71,7 +71,7 @@ describe('Hamburger Menu Testing', () => {
     await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
     await expect(SecurePage.title).toHaveText('Products');
 
-    await SecurePage.hamburgerMenu.click();
+    await SecurePage.hamburgerClick();;
     await SecurePage.aboutButton.waitForDisplayed();
     await SecurePage.aboutButton.click();
 
@@ -99,7 +99,7 @@ describe('Your Cart Testing', () =>{
 
         await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
         await expect(SecurePage.shoppingCart).toBeDisplayed();
-        await SecurePage.shoppingCart.click();
+        await SecurePage.clickCart();
 
         await expect($('.title')).toHaveText('Your Cart');
     })
@@ -111,7 +111,7 @@ describe('Your Cart Testing', () =>{
         await expect(SecurePage.removeItem).toBeDisplayed();
 
         await expect(SecurePage.cartIndicator).toBeDisplayed();
-        await SecurePage.shoppingCart.click();
+        await SecurePage.clickCart();
 
         await expect(SecurePage.removeCart).toExist();
         await SecurePage.removeCart.click();
@@ -124,7 +124,7 @@ describe('Your Cart Testing', () =>{
         await expect(SecurePage.title).toHaveText('Products');
 
         await SecurePage.shoppingCart.waitForClickable();
-        await SecurePage.shoppingCart.click();
+        await SecurePage.clickCart();
         await expect(SecurePage.continueShopping).toExist();
 
         await SecurePage.continueShopping.click()
@@ -136,7 +136,7 @@ describe('Your Cart Testing', () =>{
         await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
         await expect(SecurePage.inventory).toBeDisplayed();
 
-        await SecurePage.shoppingCart.click()
+        await SecurePage.clickCart()
         await expect(SecurePage.checkoutButton).toBeDisplayed();
 
         await SecurePage.checkoutButton.click();
