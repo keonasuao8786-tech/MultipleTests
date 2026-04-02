@@ -133,15 +133,73 @@ class SecurePage extends Page {
     }
 
     async resetApp () {
-        const resetAppState = await $('#reset_sidebar_link');
-        await resetAppState.click();
+        const resetAppStateB = await $('#reset_sidebar_link');
+        await resetAppStateB.click();
     }
 
     async clickCart () {
         const selectCart = await $('.shopping_cart_link');
         await selectCart.click();
     }
+
+    async addingItem () {
+        const addNewItem = await $('.btn.btn_primary.btn_small.btn_inventory');
+        await addNewItem.click();
+    }
+
+    async aboutClick () {
+        const clickAbout = await $('#about_sidebar_link');
+        await clickAbout.click();
+    }
+
+    async allItemsClick () {
+        const allItems = await $('#inventory_sidebar_link');
+        await allItems.click();
+    }
+
+    async shopping () {
+        const continueShopping = await $('.btn.btn_secondary.back.btn_medium');
+        await continueShopping.click();
+    }
+
+    async checkout () {
+        const checkout = await $('.btn.btn_action.btn_medium.checkout_button');
+        await checkout.click();
+    }
+
+    async removeFromCart () {
+        const removeFromCart = await $('.btn.btn_secondary.btn_small.cart_button');
+        await removeFromCart.click();
+    }
     
+    async itemLoop () {
+        const item = [$('#item_0_img_link'), $('#item_1_img_link'), $('#item_2_img_link'), $('#item_3_img_link'), $('#item_4_img_link'), $('#item_5_img_link')]
+        for (let y = 0; y < item.length; y++) {
+            await expect($('#react-burger-menu-btn')).toBeDisplayed();
+            await item[y].click();
+            await expect($('#back-to-products')).toExist();
+            await $('#react-burger-menu-btn').waitForClickable();
+            await $('#react-burger-menu-btn').click();
+            await $('#inventory_sidebar_link').click();
+            await expect($('.app_logo')).toBeDisplayed();
+        }
+    }
+
+    async titleCheck () {
+        await expect($('.title')).toHaveText('Products');
+    }
+
+    async titleCheckCart () {
+        await expect($('.title')).toHaveText('Your Cart');
+    }
+
+    async titleCheckOut () {
+        await expect($('.title')).toHaveText('Checkout: Your Information');
+    }
+
+    async urlCheck () {
+        await expect(browser).toHaveUrl(expect.stringContaining('saucelabs.com'));
+    }
     
 }
 
