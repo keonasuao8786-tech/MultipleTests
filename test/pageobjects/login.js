@@ -24,6 +24,10 @@ class LoginPage extends Page {
         await this.btnSubmit.click();
     }
 
+    async standardLogin () {
+        await this.login('standard_user', 'secret_sauce');
+    }
+
     open () {
         return super.open('login');
     }

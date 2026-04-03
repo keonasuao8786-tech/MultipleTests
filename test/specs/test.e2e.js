@@ -11,7 +11,7 @@ describe('Hamburger Menu Testing', () => {
     });
     it('should open and close the Hamburger menu', async () => {
 
-        await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
+        await LoginPage.standardLogin();
         await expect(SecurePage.hamburgerMenu).toBeDisplayed();
 
         await SecurePage.hamburgerClick();
@@ -24,14 +24,14 @@ describe('Hamburger Menu Testing', () => {
     it('should use the All Items button correctly', async () => {
         await expect(LoginPage.inputUsername).toExist();
 
-            await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
+            await LoginPage.standardLogin();
             await SecurePage.itemLoop();
             await SecurePage.logout();
     })
     it('should logout of the site properly', async () => {
         await expect(LoginPage.inputUsername).toExist();
 
-        await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
+        await LoginPage.standardLogin();
         await expect(SecurePage.hamburgerMenu).toExist();
         await SecurePage.hamburgerMenu.waitForDisplayed();
         await SecurePage.logout();
@@ -40,7 +40,7 @@ describe('Hamburger Menu Testing', () => {
     it('should use the Reset App State button properly', async () => {
         await expect(LoginPage.inputUsername).toExist();
 
-        await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
+        await LoginPage.standardLogin();
         await expect(SecurePage.hamburgerMenu).toExist();
         for (let x = 0; x < SecurePage.items.length; x++) {
             await expect(SecurePage.hamburgerMenu).toBeDisplayed();
@@ -59,7 +59,7 @@ describe('Hamburger Menu Testing', () => {
         await expect(SecurePage.removeItem).not.toBeDisplayed();
     })
     it('should use the About button properly', async () => {
-    await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
+    await LoginPage.standardLogin();
     await SecurePage.titleCheck();
 
     await SecurePage.hamburgerClick();;
@@ -87,7 +87,7 @@ describe('Your Cart Testing', () =>{
     });
     it('should open the Your Cart page successfully', async () => {
 
-        await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
+        await LoginPage.standardLogin();
         await expect(SecurePage.shoppingCart).toBeDisplayed();
         await SecurePage.clickCart();
 
@@ -95,7 +95,7 @@ describe('Your Cart Testing', () =>{
     })
     it('should use the Remove button in the Your Cart page properly', async () => {
 
-        await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
+        await LoginPage.standardLogin();
         await expect(SecurePage.inventory).toBeDisplayed();
         await SecurePage.addingItem();
         await expect(SecurePage.removeItem).toBeDisplayed();
@@ -110,7 +110,7 @@ describe('Your Cart Testing', () =>{
     })
     it('should confirm the Continue Shopping button takes you to the Products page from Your Cart', async () => {
 
-        await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
+        await LoginPage.standardLogin();
         await SecurePage.titleCheck();
 
         await SecurePage.shoppingCart.waitForClickable();
@@ -123,7 +123,7 @@ describe('Your Cart Testing', () =>{
     })
     it('should take you to the Checkout page', async () => {
 
-        await LoginPage.login(SecurePage.allUsernames[0], 'secret_sauce');
+        await LoginPage.standardLogin();
         await expect(SecurePage.inventory).toBeDisplayed();
 
         await SecurePage.clickCart()
